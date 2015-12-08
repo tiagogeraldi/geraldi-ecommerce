@@ -1,0 +1,15 @@
+table.table.table-striped.table-hover.table-bordered
+  tr
+    th
+    th.center Chave
+    th.center Valor
+    th
+    th
+
+  - @resources.each do |setting|
+    tr
+      td = setting.id.to_s
+      td = setting.name
+      td = setting.description
+
+      = render 'operations', resource: setting

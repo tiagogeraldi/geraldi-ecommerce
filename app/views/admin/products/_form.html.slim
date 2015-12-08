@@ -1,0 +1,26 @@
+= simple_form_for ['admin', @resource] do |f|
+  .row
+    .col-md-6
+      = f.input :name 
+  
+  = f.input :description
+
+
+  .row
+    .col-md-3 = f.input :height 
+    .col-md-3 = f.input :width 
+    .col-md-3 = f.input :weight 
+    .col-md-3 = f.input :depth 
+
+  = f.input :price 
+  = f.association :category
+  = f.association :brand 
+  = f.input :discount
+  = f.input :news 
+  = f.input :views 
+  = f.input :special 
+  = f.input :promotion 
+  = f.input :sould_out
+  = f.input :stock_code 
+  = f.input :factory_code
+  = render 'form_buttons', f: f

@@ -1,0 +1,18 @@
+- if @search_attrs
+  = simple_form_for :filter,
+    url: send("admin_#{@klass.to_s.downcase.pluralize}_path"),
+    html: { method: :get, class: 'form-inline pull-right admin-search' } do |f|
+
+    .form-group
+      = f.input :term, input_html: { value: @term }, placeholder: 'Procure...', label: false
+
+    = f.submit "Buscar", class: 'btn btn-primary'
+
+h2 = @klass.model_name.human
+hr.line
+
+- unless @readonly
+  p
+    = link_to send("new_admin_#{@klass.to_s.downcase}_path"), class: 'btn btn-primary' do
+      i.fa.fa-plus
+      | Novo

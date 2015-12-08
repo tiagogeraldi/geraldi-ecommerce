@@ -1,0 +1,9 @@
+pt_br:
+  activerecord:
+    models:
+      setting:
+        one: Configurações
+    attributes:
+      setting:
+        name: Chave
+        description: Valor

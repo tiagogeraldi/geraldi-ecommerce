@@ -1,0 +1,39 @@
+/*
+*= require font-awesome
+*= require load_framework
+*= require sb-admin
+*= require_self
+*/
+
+.center {
+  text-align: center;
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+.fa.no-margin {
+  margin-right: 0px;
+}
+
+table {
+  .label {
+    margin-top: 5px;
+    display: inline-block;
+  }
+}
+
+form.admin-search {
+  margin-top: 23px;
+
+  input {
+    margin: 0 5px;
+  }
+}
+
+.btn-grid,
+a.remove-image,
+a.remove-item {
+  margin-top: 25px;
+}
