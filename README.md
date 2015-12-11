@@ -29,3 +29,5 @@ http://localhost:8080
 
 ### Back-end
 http://localhost:8080/admin
+Email: test@test.com
+Password: 123123
