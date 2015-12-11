@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :brands
     resources :products
+    resources :carts
 
     get "/" => "welcomes#index"
   end

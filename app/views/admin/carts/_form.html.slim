@@ -1,0 +1,5 @@
+= simple_form_for ['admin', @resource] do |f|
+  = f.association :user
+  = f.association :product
+  = f.input :quantiy
+  = render 'form_buttons', f: f

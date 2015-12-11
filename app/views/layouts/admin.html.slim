@@ -49,7 +49,7 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"]
                   | Order
               li class="#{'active' if params[:controller] == 'admin_products'}"
                 = link_to admin_products_path do
-                  i.fa.fa-fw.fa-shopping-cart
+                  i.fa.fa-fw.fa-product
                   | Product
               li class="#{'active' if params[:controller] == 'admin_customers'}"
                 = link_to '#' do
@@ -59,6 +59,10 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"]
                 = link_to admin_brands_path do
                   i.fa.fa-fw.fa-asterisk
                   = Brand.model_name.human
+              li class="#{'active' if params[:controller] == 'admin_carts'}"
+                = link_to admin_carts_path do
+                  i.fa.fa-fw.fa-shopping-cart
+                  | Cart
               li class="#{'active' if params[:controller] == 'admin_categories'}"
                 = link_to admin_categories_path do
                   i.fa.fa-fw.fa-bars
