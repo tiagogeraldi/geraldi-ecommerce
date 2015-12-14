@@ -9,6 +9,8 @@ Simple and generic e-commerce for general uses.
 * PostgresSQL
 * Slim
 
+## Database
+Setup your PostgreSQL connection at config/database.yml
 
 ## Install
 ```shell
