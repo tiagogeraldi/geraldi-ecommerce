@@ -13,4 +13,20 @@ html
       == render 'layouts/navigation'
     main[role="main"]
       == render 'layouts/messages'
-      == yield
+
+      /! Page Content
+      .container
+        .row
+          .col-md-3
+            = render '/layouts/left_menu'
+
+          .col-md-9
+            == yield
+      
+      .container
+        hr/
+        /! Footer
+        footer
+          .row
+            .col-lg-12
+              p Copyright &copy; Your Website 2014
