@@ -1,5 +1,5 @@
 class Cart < ActiveRecord::Base
-  validates :product_id, :user_id, :quantiy, presence: true
+  validates :product_id, :user_id, :quantity, presence: true
   
   belongs_to :product
   belongs_to :user
