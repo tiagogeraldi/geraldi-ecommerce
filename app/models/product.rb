@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :brand
 
-  has_many :cart
+  has_many :carts
 
   def to_s
     name
