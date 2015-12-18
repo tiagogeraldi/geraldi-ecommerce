@@ -1,6 +1,7 @@
 class Admin::CartsController < AdminController
   before_filter do
     set_klass(Cart)
+    @readonly = true
   end
 
   private

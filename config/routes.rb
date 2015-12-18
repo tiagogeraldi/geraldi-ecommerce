@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :brands
     resources :products
-    resources :carts
+    resources :carts, only: [:index, :edit]
 
     get "/" => "welcomes#index"
   end
