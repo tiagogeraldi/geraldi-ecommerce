@@ -10,6 +10,9 @@ Simple and generic e-commerce for general uses.
 * Slim
 
 ## Database
+```
+  mv config/database.yml.example config/database.yml
+```
 Setup your PostgreSQL connection at config/database.yml
 
 ## Install
