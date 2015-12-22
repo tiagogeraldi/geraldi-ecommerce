@@ -36,3 +36,18 @@ http://localhost:8080
 http://localhost:8080/admin
 Email: test@test.com
 Password: 123123
+
+## Production
+Neeeded ENV variables:
+```
+# SMTP
+SMTP_SERVER
+DOMAIN_NAME
+EMAIL_PROVIDER_USERNAME
+EMAIL_PROVIDER_PASSWORD
+
+# S3 storage
+S3_BUCKET
+S3_ACCESS_KEY_ID
+S3_SECRET_ACCESS_KEY
+```

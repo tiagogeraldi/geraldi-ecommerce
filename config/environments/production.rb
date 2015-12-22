@@ -72,7 +72,7 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: Rails.application.secrets.smtp_server,
     port: 587,
     domain: Rails.application.secrets.domain_name,
     authentication: "plain",
@@ -92,4 +92,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket:            Rails.application.secrets.s3_bucket, 
+      access_key_id:     Rails.application.secrets.s3_access_key_id, 
+      secret_access_key: Rails.application.secrets.s3_secret_access_key
+      },
+    path: ":class/:attachment/:id/:style/:filename"
+  }
 end
