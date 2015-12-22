@@ -5,3 +5,9 @@ h3 = Category.model_name.human
   - cache do
     - Category.order('name').each do |category|
       = link_to category.name, category, class: 'list-group-item'
+
+h3 = Brand.model_name.human
+.list-group
+  - cache do
+    - Brand.order('name').each do |brand|
+      = link_to brand.name, brand, class: 'list-group-item'
