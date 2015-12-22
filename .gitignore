@@ -19,3 +19,4 @@ log/*
 .gemtags
 .tags_sorted_by_file
 /coverage/
+public/system
