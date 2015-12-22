@@ -6,11 +6,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
+gem 'aws-sdk', '>= 2.0.0'
+gem "paperclip", "~> 4.3"
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise-i18n'
@@ -21,6 +18,7 @@ gem 'slim-rails'
 gem 'font-awesome-rails'
 gem 'rails_db'
 gem 'will_paginate'
+gem 'cocoon'
 
 group :development do
   gem 'better_errors'
@@ -31,6 +29,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'puma'
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
 end
 group :production do
   gem 'rails_12factor'
