@@ -24,8 +24,13 @@
         .col-md-6 = f.input :stock_code 
         .col-md-6 = f.input :factory_code
 
-
-
   = f.input :description, input_html: { rows: 7 }
+
+  hr.line
+
+  = f.simple_fields_for :product_shots do |shot|
+     = render 'product_shot_fields', :f => shot
+  .links
+    = link_to_add_association 'Add Picture', f, :product_shots, class: 'btn btn-default'
 
   = render 'form_buttons', f: f

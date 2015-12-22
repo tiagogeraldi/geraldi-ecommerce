@@ -6,6 +6,9 @@ class Product < ActiveRecord::Base
   belongs_to :brand
 
   has_many :carts
+  has_many :product_shots
+
+  accepts_nested_attributes_for :product_shots, allow_destroy: true
 
   def to_s
     name

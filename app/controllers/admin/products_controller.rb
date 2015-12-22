@@ -11,6 +11,9 @@ class Admin::ProductsController < AdminController
                                     :price, :weight, :depth, 
                                     :category_id, :brand_id, :discount,
                                     :news, :special, :promotion, :sould_out,
-                                    :stock_code, :factory_code)
+                                    :stock_code, :factory_code,
+                                    product_shots_attributes: [
+                                      :id, :image, :_destroy, :product_id
+                                    ])
   end
 end
