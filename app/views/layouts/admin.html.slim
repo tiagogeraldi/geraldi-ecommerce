@@ -52,7 +52,7 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"]
                   i.fa.fa-fw.fa-product-hunt
                   | Product
               li class="#{'active' if params[:controller] == 'admin_customers'}"
-                = link_to '#' do
+                = link_to admin_customers_path do
                   i.fa.fa-fw.fa-users
                   | Customer
               li class="#{'active' if params[:controller] == 'admin_brands'}"
