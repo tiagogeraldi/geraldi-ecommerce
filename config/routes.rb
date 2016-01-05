@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :customers
   root to: 'visitors#index'
 
   devise_for :users, path_prefix: 'login'
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
     resources :users
     
     get "/" => "welcomes#index"
+  end
+
+  namespace :customer do
+    resources :orders, only: [:index]
   end
 
   resources :categories, only: [:show]

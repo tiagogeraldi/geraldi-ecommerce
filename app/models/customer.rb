@@ -1,9 +1,10 @@
 class Customer < ActiveRecord::Base
-  validates :user_id, :name, presence: true
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   
-  belongs_to :user
-
   def to_s
-    name
+    name.present? ? name : email
   end
 end
