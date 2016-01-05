@@ -1,9 +1,21 @@
 table.table.table-striped.table-hover
   thead
     tr
+      th = @klass.human_attribute_name :email
       th = @klass.human_attribute_name :name
       th = @klass.human_attribute_name :phone
       th = @klass.human_attribute_name :zip_code
       th = @klass.human_attribute_name :state
       th = @klass.human_attribute_name :city
       th = @klass.human_attribute_name :address
+
+  tbody
+    - @resources.each do |item|
+      tr
+        td = item.email
+        td = item.name
+        td = item.phone
+        td = item.zip_code
+        td = item.state
+        td = item.city
+        td = item.address

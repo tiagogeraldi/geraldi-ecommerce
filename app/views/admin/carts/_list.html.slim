@@ -1,5 +1,12 @@
 table.table.table-striped.table-hover
   thead
     tr
-      th = @klass.human_attribute_name :product_id
-      th = @klass.human_attribute_name :quanty
+      th = @klass.human_attribute_name :user
+      th = @klass.human_attribute_name :product
+      th = @klass.human_attribute_name :quantity
+  tbody
+    - @resources.each do |item|
+      tr
+        td = item.user.to_s
+        td = item.product.to_s
+        td = item.quantity
