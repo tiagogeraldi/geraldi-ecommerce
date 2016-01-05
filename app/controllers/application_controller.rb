@@ -5,13 +5,6 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
-  def require_admin
-    unless current_user.admin?
-      redirect_to new_session_url
-      return false
-    end
-  end
-
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end

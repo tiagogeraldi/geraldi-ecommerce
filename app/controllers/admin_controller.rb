@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class AdminController < ApplicationController
-  before_filter :authenticate_user!, :require_admin
+  before_filter :authenticate_user!
   after_filter :expire_cache, :only => [:create, :update, :destroy]
 
   def index
