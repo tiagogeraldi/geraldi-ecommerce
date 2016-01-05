@@ -68,9 +68,9 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"]
                   i.fa.fa-fw.fa-bars
                   = Category.model_name.human
               li class="#{'active' if params[:controller] == 'admin_users'}"
-                = link_to '#' do
+                = link_to admin_users_path do
                   i.fa.fa-fw.fa-user-secret
-                  | Admins
+                  | Users
               li class="#{'active' if params[:controller] == 'admin_settings'}"
                 = link_to admin_settings_path do
                   i.fa.fa-fw.fa-gears
