@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :products
     resources :carts, only: [:index, :edit]
     resources :customers, only: [:index, :edit]
+    resources :settings
     
     get "/" => "welcomes#index"
   end
