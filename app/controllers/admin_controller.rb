@@ -88,4 +88,11 @@ class AdminController < ApplicationController
       "lower(#{s}) like '%#{@term.downcase}%'"
     end.join(' or ')
   end
+
+  def clean_password_fields(model)
+    if params[model] && params[model][:password].blank?
+      params[model].delete(:password)
+      params[model].delete(:password_confirmation)
+    end
+  end
 end

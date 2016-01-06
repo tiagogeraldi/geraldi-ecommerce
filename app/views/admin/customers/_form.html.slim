@@ -1,0 +1,22 @@
+= simple_form_for ['admin', @resource] do |f|
+  = f.input :name
+  = f.input :email
+  = f.input :address
+
+  .row
+    .col-md-6
+      = f.input :city
+    .col-md-6
+      = f.input :state
+  .row
+    .col-md-6
+      = f.input :zip_code
+    .col-md-6
+      = f.input :phone
+  hr.line
+  .row
+    .col-md-6
+      = f.input :password
+    .col-md-6
+      = f.input :password_confirmation
+  = render 'form_buttons', f: f

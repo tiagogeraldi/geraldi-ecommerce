@@ -1,12 +1,14 @@
 class Admin::CustomersController < AdminController
   before_filter do
     set_klass(Customer)
-    @readonly = true
+    set_search_attrs(['name', 'email', 'city', 'state', 'zip_code'])
+    clean_password_fields(:customer)
   end
 
   private
 
   def resource_params
-    params.require(:customer).permit(:user_id, :name, :address, :city, :state, :zip_code, :phone)
+    params.require(:customer).permit(:user_id, :name, :address, :city, :state, 
+                                     :zip_code, :phone, :password, :password_confirmation)
   end
 end

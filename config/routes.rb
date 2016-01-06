@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :brands
     resources :products
     resources :carts, only: [:index, :edit]
-    resources :customers, only: [:index, :edit]
+    resources :customers
     resources :settings
     resources :users
     
