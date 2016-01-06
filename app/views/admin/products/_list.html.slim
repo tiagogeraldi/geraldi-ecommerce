@@ -1,6 +1,8 @@
 table.table.table-striped.table-hover
   thead
     tr
+      th = @klass.human_attribute_name :id
+      th = @klass.human_attribute_name :brand_id
       th = @klass.human_attribute_name :name
       th
       th = @klass.human_attribute_name :price
@@ -8,6 +10,13 @@ table.table.table-striped.table-hover
   tbody
     - @resources.each do |item|
       tr
-        td = link_to item.to_s, send("edit_admin_#{@klass.to_s.downcase}_path", item)
-        td = product_first_image_for_list(item)
-        td.text-right = number_to_currency item.price
+        td.text-right 
+          = item.id.to_s
+        td.text-right 
+          = link_to item.brand_id, send("edit_admin_#{@klass.to_s.downcase}_path", item)
+        td 
+          = link_to item.to_s, send("edit_admin_#{@klass.to_s.downcase}_path", item)
+        td 
+          = product_first_image_for_list(item)
+        td.text-right 
+          = number_to_currency item.price
