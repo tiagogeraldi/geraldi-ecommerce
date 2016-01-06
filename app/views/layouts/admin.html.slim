@@ -44,7 +44,7 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"]
                   i.fa.fa-fw.fa-dashboard
                   | Dashboard
               li class="#{'active' if params[:controller] == 'admin_orders'}"
-                = link_to '#' do
+                = link_to admin_orders_path do
                   i.fa.fa-fw.fa-truck
                   | Order
               li class="#{'active' if params[:controller] == 'admin_products'}"

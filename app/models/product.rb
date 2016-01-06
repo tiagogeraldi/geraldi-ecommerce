@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
 
   has_many :carts
   has_many :product_shots
+  has_many :order_items
 
   accepts_nested_attributes_for :product_shots, allow_destroy: true
 

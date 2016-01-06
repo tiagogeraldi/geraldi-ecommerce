@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :brands
     resources :products
+    resources :orders
     resources :carts, only: [:index, :edit]
     resources :customers
     resources :settings

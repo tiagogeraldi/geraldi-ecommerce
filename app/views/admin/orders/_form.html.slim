@@ -1,0 +1,15 @@
+= simple_form_for ['admin', @resource] do |f|
+  .row
+    .col-md-6
+      = f.association :customer
+    .col-md-3
+      = f.input :status
+    .col-md-3
+      = f.input :shipping_cost
+
+  = f.simple_fields_for :order_items do |item|
+     = render 'order_item_fields', :f => item
+  .links
+    = link_to_add_association 'Add Item', f, :order_items, class: 'btn btn-default'
+
+  = render 'form_buttons', f: f

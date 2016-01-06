@@ -4,7 +4,7 @@ class AdminController < ApplicationController
   after_filter :expire_cache, :only => [:create, :update, :destroy]
 
   def index
-    @resources = @klass.paginate(page: params[:page], per_page: 30).order('created_at desc')
+    collection
 
     if params[:filter] && params[:filter][:term].present?
       @term = params[:filter][:term]
@@ -94,5 +94,9 @@ class AdminController < ApplicationController
       params[model].delete(:password)
       params[model].delete(:password_confirmation)
     end
+  end
+
+  def collection
+    @resources ||= @klass.paginate(page: params[:page], per_page: 30).order('created_at desc')
   end
 end

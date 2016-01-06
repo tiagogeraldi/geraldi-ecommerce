@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105200351) do
+ActiveRecord::Schema.define(version: 20160106163616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,27 @@ ActiveRecord::Schema.define(version: 20160105200351) do
   add_index "customers", ["email"], name: "index_customers_on_email", unique: true, using: :btree
   add_index "customers", ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.float    "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "status"
+    t.string   "shipping_cost"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "customer_id"
+  end
+
+  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
+
   create_table "product_shots", force: :cascade do |t|
     t.integer  "product_id"
     t.datetime "created_at",         null: false
@@ -114,6 +135,23 @@ ActiveRecord::Schema.define(version: 20160105200351) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "shipping_order_items", force: :cascade do |t|
+    t.integer  "shipping_id"
+    t.integer  "order_item_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "shipping_order_items", ["order_item_id"], name: "index_shipping_order_items_on_order_item_id", using: :btree
+  add_index "shipping_order_items", ["shipping_id"], name: "index_shipping_order_items_on_shipping_id", using: :btree
+
+  create_table "shippings", force: :cascade do |t|
+    t.float    "quantity"
+    t.string   "tracking_code"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -139,7 +177,12 @@ ActiveRecord::Schema.define(version: 20160105200351) do
 
   add_foreign_key "carts", "products"
   add_foreign_key "carts", "users"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "customers"
   add_foreign_key "product_shots", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
+  add_foreign_key "shipping_order_items", "order_items"
+  add_foreign_key "shipping_order_items", "shippings"
 end
