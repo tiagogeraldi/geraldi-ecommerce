@@ -3,7 +3,7 @@
     .col-md-6
       = f.association :customer
     .col-md-3
-      = f.input :status
+      = f.input :status, as: :select, collection: OrderStatus.to_a
     .col-md-3
       = f.input :shipping_cost
 

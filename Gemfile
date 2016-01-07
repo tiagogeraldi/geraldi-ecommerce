@@ -19,6 +19,7 @@ gem 'font-awesome-rails'
 gem 'rails_db'
 gem 'will_paginate'
 gem 'cocoon'
+gem 'enumerate_it'
 
 group :development do
   gem 'better_errors'
