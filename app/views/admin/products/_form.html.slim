@@ -13,8 +13,14 @@
 
     .col-md-6
       .row
-        .col-md-6 = f.association :category
-        .col-md-6 = f.association :brand
+        .col-md-6 
+          = f.input :category_name, url: autocomplete_category_name_admin_products_path, 
+                    as: :autocomplete, 
+                    input_html: { class: 'form-control' }
+        .col-md-6 
+          = f.input :brand_name, url: autocomplete_brand_name_admin_products_path, 
+                    as: :autocomplete, 
+                    input_html: { class: 'form-control' }
       .row
         .col-md-3 = f.input :height
         .col-md-3 = f.input :width

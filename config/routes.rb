@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :welcomes, only: [:index]
     resources :categories
     resources :brands
-    resources :products
+    resources :products do
+      get :autocomplete_brand_name,    on: :collection
+      get :autocomplete_category_name, on: :collection
+    end
     resources :orders
     resources :carts, only: [:index, :edit]
     resources :customers

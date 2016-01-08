@@ -5,6 +5,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'aws-sdk', '>= 2.0.0'
 gem "paperclip", "~> 4.3"
@@ -20,6 +21,7 @@ gem 'rails_db'
 gem 'will_paginate'
 gem 'cocoon'
 gem 'enumerate_it'
+gem 'rails4-autocomplete'
 
 group :development do
   gem 'better_errors'
