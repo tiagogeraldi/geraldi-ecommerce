@@ -2,4 +2,5 @@ hr.line
 p
   = f.submit 'Salvar', class: 'btn btn-primary btn-lg'
   = f.submit 'Salvar e Fechar', class: 'btn btn-primary btn-lg'
+  = link_to 'Remover', send("admin_#{@klass.to_s.downcase}_path"), method: :destroy, class: 'btn btn-warning btn-lg'
   = link_to 'Cancelar', send("admin_#{@klass.to_s.downcase.pluralize}_path"), class: 'btn btn-default btn-lg'
