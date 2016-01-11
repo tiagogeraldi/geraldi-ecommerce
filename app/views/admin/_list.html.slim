@@ -4,6 +4,6 @@ table.table.table-striped.table-hover
       th = @klass.human_attribute_name :name
 
   tbody
-    - @resources.each do |item|
+    - resources.each do |item|
       tr
         td = link_to item.to_s, send("edit_admin_#{@klass.to_s.downcase}_path", item)

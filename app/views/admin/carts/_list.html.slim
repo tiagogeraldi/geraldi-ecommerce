@@ -5,7 +5,7 @@ table.table.table-striped.table-hover
       th = @klass.human_attribute_name :product
       th = @klass.human_attribute_name :quantity
   tbody
-    - @resources.each do |item|
+    - resources.each do |item|
       tr
         td = item.user.to_s
         td = item.product.to_s

@@ -9,12 +9,12 @@ table.table.table-striped.table-hover
       th = @klass.human_attribute_name :price
 
   tbody
-    - @resources.each do |item|
+    - resources.each do |item|
       tr
         td.text-right 
           = item.id.to_s
         td 
-          = link_to item.to_s, send("edit_admin_#{@klass.to_s.downcase}_path", item)
+          = link_to item.to_s, edit_admin_product_path(item)
         td
           = item.brand
         td

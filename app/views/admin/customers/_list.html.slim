@@ -10,7 +10,7 @@ table.table.table-striped.table-hover
       th = @klass.human_attribute_name :address
 
   tbody
-    - @resources.each do |item|
+    - resources.each do |item|
       tr
         td = link_to item.email, send("edit_admin_#{@klass.to_s.downcase}_path", item)
         td = item.name

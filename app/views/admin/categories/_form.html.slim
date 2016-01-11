@@ -1,3 +1,9 @@
 = simple_form_for ['admin', @resource] do |f|
   = f.input :name
   = render 'form_buttons', f: f
+
+- if @resource.persisted?
+  hr.line
+  h4 Products
+
+  = render '/admin/products/list', resources: @resource.products
