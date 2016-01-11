@@ -10,6 +10,6 @@
   = f.simple_fields_for :order_items do |item|
      = render 'order_item_fields', :f => item
   .links
-    = link_to_add_association 'Add Item', f, :order_items, class: 'btn btn-default'
+    = link_to_add_association 'Add Product', f, :order_items, class: 'btn btn-default'
 
   = render 'form_buttons', f: f

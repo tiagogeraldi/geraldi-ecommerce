@@ -1,4 +1,5 @@
 class Shipping < ActiveRecord::Base
-  has_many :shipping_order_items
-  has_many :order_items, through: :shipping_order_items
+  belongs_to :order_item
+
+  validates :tracking_code, :quantity, presence: true
 end
