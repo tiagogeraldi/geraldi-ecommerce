@@ -103,3 +103,10 @@ Rails.application.configure do
     path: ":class/:attachment/:id/:style/:filename"
   }
 end
+
+Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[#{Rails.application.secrets.site_name}] ",
+    :sender_address => %{"notifier" <#{Rails.application.secrets.email_provider_username]}>},
+    :exception_recipients => "#{Rails.application.secrets.admin_email}"
+  }

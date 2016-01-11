@@ -22,6 +22,7 @@ gem 'will_paginate'
 gem 'cocoon'
 gem 'enumerate_it'
 gem 'rails4-autocomplete'
+gem 'exception_notification'
 
 group :development do
   gem 'better_errors'
