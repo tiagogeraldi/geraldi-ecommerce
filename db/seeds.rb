@@ -8,7 +8,6 @@
 User.find_or_create_by!(email: 'test@test.com') do |user|
   user.password              = '123123'
   user.password_confirmation = '123123'
-  user.admin                 = true
   user.confirm!
 end
 # Environment variables (ENV['...']) can be set in the file config/application.yml.
