@@ -41,7 +41,6 @@ Password: 123123
 Neeeded ENV variables:
 ```
 SITE_NAME
-ADMIN_NAME
 ADMIN_EMAIL
 
 # SMTP
