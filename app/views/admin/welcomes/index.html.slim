@@ -1,1 +1,73 @@
-| index
+.row
+  .col-lg-12
+    h1.page-header
+      | Dashboard
+      small 
+        |  Statistics Overview
+    ol.breadcrumb
+      li.active
+        i.fa.fa-dashboard
+        | Dashboard
+.row
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        .row
+          .col-xs-3
+            i.fa.fa-users.fa-5x
+          .col-xs-9.text-right
+            .huge = Customer.count
+            div Customers
+      a href="#{admin_customers_path}" 
+        .panel-footer
+          span.pull-left View Details
+          span.pull-right
+            i.fa.fa-arrow-circle-right
+          .clearfix
+  .col-lg-4
+    .panel.panel-green
+      .panel-heading
+        .row
+          .col-xs-3
+            i.fa.fa-product.fa-5x
+          .col-xs-9.text-right
+            .huge = Product.count
+            div Products
+      a href="#{admin_products_path}" 
+        .panel-footer
+          span.pull-left View Details
+          span.pull-right
+            i.fa.fa-arrow-circle-right
+          .clearfix
+  .col-lg-4
+    .panel.panel-yellow
+      .panel-heading
+        .row
+          .col-xs-3
+            i.fa.fa-truck.fa-5x
+          .col-xs-9.text-right
+            .huge = Order.count
+            div Orders
+      a href="#{admin_orders_path}"
+        .panel-footer
+          span.pull-left View Details
+          span.pull-right
+            i.fa.fa-arrow-circle-right
+          .clearfix
+.row
+  .col-lg-6
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+          i.fa.fa-truck.fa-fw
+          | Last Orders
+      .panel-body
+        = render '/admin/orders/list', resources: Order.order('id desc').last(25)
+  .col-lg-6
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title
+          i.fa.fa-truck.fa-fw
+          | Best Sellers
+      .panel-body
+        = render '/admin/products/list', resources: Product.best_sellers(limit: 15)

@@ -1,22 +1,22 @@
 table.table.table-striped.table-hover
   thead
     tr
-      th = @klass.human_attribute_name :id
-      th = @klass.human_attribute_name :created_at
-      th = @klass.human_attribute_name :customer
-      th = @klass.human_attribute_name :total
-      th = @klass.human_attribute_name :status
+      th = Order.human_attribute_name :id
+      th = Order.human_attribute_name :customer
+      th = Order.human_attribute_name :total
+      th = Order.human_attribute_name :status
+      th
 
   tbody
     - resources.each do |item|
       tr
         td.text-right 
           = item.id.to_s
-        td.text-center 
-          = link_to l(item.created_at), send("edit_admin_#{@klass.to_s.downcase}_path", item)
         td 
-          = link_to item.customer, send("edit_admin_#{@klass.to_s.downcase}_path", item)
+          = link_to item.customer, edit_admin_order_path(item)
         td.text-right
           = number_to_currency item.total
         td.text-center 
           = item.status_humanize
+        td.text-right
+          span.badge = time_ago_in_words(item.created_at) + ' ago'
