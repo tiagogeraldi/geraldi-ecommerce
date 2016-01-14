@@ -1,2 +1,9 @@
 en:
   ago: ' ago'
+  keyword: 'Keyword...'
+  search: 'Search'
+  save: 'Save'
+  save_and_close: 'Save and Close'
+  delete: 'Delete'
+  cancel: 'Cancel'
+  add: 'Add'

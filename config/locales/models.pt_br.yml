@@ -51,6 +51,8 @@ pt_br:
         <<: *commons
       category:
         <<: *commons
+      cart:
+        <<: *commons
       customer:
         <<: *commons
         address: "Endereço"

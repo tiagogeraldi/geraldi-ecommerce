@@ -37,6 +37,6 @@
   = f.simple_fields_for :product_shots do |shot|
      = render 'product_shot_fields', :f => shot
   .links
-    = link_to_add_association 'Add Picture', f, :product_shots, class: 'btn btn-default'
+    = link_to_add_association add_item_label(singular(ProductShot)), f, :product_shots, class: 'btn btn-default'
 
   = render 'form_buttons', f: f
