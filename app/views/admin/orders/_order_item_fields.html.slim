@@ -8,10 +8,13 @@
       = link_to_remove_association f, class: 'btn btn-danger remove-image' do
         i.fa.fa-trash.no-margin
 
-  h5 Product Shipping
+  h4 = plural Shipping
   = f.simple_fields_for :shippings do |item|
     = render 'shipping_fields', :f => item
   .links
-    = link_to_add_association 'Add Tracking Code', f, :shippings, class: 'btn btn-default'
+    = link_to_add_association add_item_label(Shipping.human_attribute_name :tracking_code), 
+                              f, 
+                              :shippings, 
+                              class: 'btn btn-default'
 
 hr.line

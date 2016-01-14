@@ -7,7 +7,21 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
+      = link_to t('home'), root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
-        == render 'layouts/navigation_links'
+        li = link_to t('my_orders'), customer_orders_path
+
+        - if customer_signed_in?
+          li.dropdown
+            a.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+              | #{t('hi')}, #{current_customer.to_s.split.first}
+              span.caret
+            ul.dropdown-menu
+              li.text-right 
+                = link_to t('edit_account'), '#'
+              li.text-right 
+                = link_to t('logoff'), destroy_customer_session_path
+        - else
+          li = link_to t('devise.sessions.new.sign_in'), new_customer_session_path
+

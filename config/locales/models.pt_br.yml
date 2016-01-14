@@ -1,0 +1,96 @@
+pt_br:
+  activerecord:
+    models:
+      brand:
+        one: "Marca"
+        other: "Marcas"
+      cart:
+        one: "Carrinho de Compra"
+        other: "Carrinhos de Compras"
+      category:
+        one: "Categoria"
+        other: "Categorias"
+      customer:
+        one: "Cliente"
+        other: "Clientes"
+      order_item:
+        one: "Item de Pedido"
+        other: "Itens de Pedido"
+      order:
+        one: "Pedido"
+        other: "Pedidos"
+      product_shot:
+        one: "Imagem do produto"
+        other: "Imagens do produto"
+      product:
+        one: "Produto"
+        other: "Produtos"
+      setting:
+        one: "Configuração"
+        other: "Configurações"
+      shipping:
+        one: "Entrega"
+        other: "Entregas"
+      user:
+        one: "Usuário"
+        other: "Usuários"
+
+    attributes:
+      attribite_commons: &commons
+        name: "Nome"
+        description: "Descrição"
+        email: "E-mail"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+        user: "Usuário"
+        product: "Produto"
+        quantity: "Quantidade"
+        password: "Senha"
+        password_confirmation: "Confirmação de senha"
+      brand:
+        <<: *commons
+      category:
+        <<: *commons
+      customer:
+        <<: *commons
+        address: "Endereço"
+        city: "Cidade"
+        state: "Estado"
+        zip_code: "CEP"
+        phone: "Telefone"
+      order_item:
+        <<: *commons
+        order: "Pedido"
+      order:
+        <<: *commons
+        shipping_cost: "Custo de entrega"
+        customer: "Cliente"
+      product_shot:
+        <<: *commons
+        image: "Imagem"
+      product:
+        <<: *commons
+        height: "Altura"
+        width: "Largura"
+        depth: "Profundidade"
+        weight: "Peso"
+        price: "Preço"
+        category: "Categoria"
+        brand: "Marca"
+        discount: "Desconto"
+        news: "Novo"
+        views: "Visualizações"
+        special: "Especial"
+        promotion: "Promoção"
+        sould_out: "Esgotado"
+        stock_code: "Código de estoque"
+        factory_code: "Código de fábrica"
+      setting:
+        <<: *commons
+      shipping:
+        <<: *commons
+        tracking_code: "Código de rastreamento"
+        order_item: "Item de pedido"
+      user:
+        <<: *commons
+

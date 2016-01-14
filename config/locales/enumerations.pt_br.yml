@@ -1,0 +1,7 @@
+pt_br:
+  enumerations:
+    order_status:
+      created: "Solicitado"
+      processing: "Em antendimento"
+      sent: "Enviado"
+      finished: "Concluído"

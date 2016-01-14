@@ -1,7 +1,7 @@
 hr.line
 p
-  = f.submit 'Salvar', class: 'btn btn-primary btn-lg'
-  = f.submit 'Salvar e Fechar', class: 'btn btn-primary btn-lg'
+  = f.submit t('save'), class: 'btn btn-primary btn-lg'
+  = f.submit t('save_and_close'), class: 'btn btn-primary btn-lg'
   - if f.object.persisted?
-    = link_to 'Remover', send("admin_#{@klass.to_s.downcase}_path"), method: :destroy, class: 'btn btn-warning btn-lg'
-  = link_to 'Cancelar', send("admin_#{@klass.to_s.downcase.pluralize}_path"), class: 'btn btn-default btn-lg'
+    = link_to t('delete'), send("admin_#{@klass.to_s.downcase}_path"), method: :destroy, class: 'btn btn-warning btn-lg'
+  = link_to t('cancel'), send("admin_#{@klass.to_s.downcase.pluralize}_path"), class: 'btn btn-default btn-lg'

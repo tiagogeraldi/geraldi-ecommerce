@@ -19,4 +19,4 @@ table.table.table-striped.table-hover
         td.text-center 
           = item.status_humanize
         td.text-right
-          span.badge = time_ago_in_words(item.created_at) + ' ago'
+          span.badge = time_ago_in_words(item.created_at) + t('ago')

@@ -17,3 +17,7 @@
 //= require bootstrap-sprockets
 //= require cocoon
 //= require_tree .
+
+$(document).ready(function() {
+  $('.hint').tooltip();
+});

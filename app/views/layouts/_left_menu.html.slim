@@ -1,12 +1,13 @@
-p.lead Shop Name
+p.lead
+  = site_name
       
-h3 = Category.model_name.human
+h3 = plural Category
 .list-group
   - cache do
     - Category.order('name').each do |category|
       = link_to category.name, category, class: 'list-group-item'
 
-h3 = Brand.model_name.human
+h3 = plural Brand
 .list-group
   - cache do
     - Brand.order('name').each do |brand|

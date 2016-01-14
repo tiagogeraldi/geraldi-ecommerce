@@ -3,7 +3,7 @@
     h1.page-header
       | Dashboard
       small 
-        |  Statistics Overview
+        |  #{t 'statistics_overview'}
     ol.breadcrumb
       li.active
         i.fa.fa-dashboard
@@ -17,10 +17,10 @@
             i.fa.fa-users.fa-5x
           .col-xs-9.text-right
             .huge = Customer.count
-            div Customers
+            div = plural Customer
       a href="#{admin_customers_path}" 
         .panel-footer
-          span.pull-left View Details
+          span.pull-left =t 'view_details'
           span.pull-right
             i.fa.fa-arrow-circle-right
           .clearfix
@@ -32,10 +32,10 @@
             i.fa.fa-product.fa-5x
           .col-xs-9.text-right
             .huge = Product.count
-            div Products
+            div = plural Product
       a href="#{admin_products_path}" 
         .panel-footer
-          span.pull-left View Details
+          span.pull-left =t 'view_details'
           span.pull-right
             i.fa.fa-arrow-circle-right
           .clearfix
@@ -47,10 +47,10 @@
             i.fa.fa-truck.fa-5x
           .col-xs-9.text-right
             .huge = Order.count
-            div Orders
+            div = plural Order
       a href="#{admin_orders_path}"
         .panel-footer
-          span.pull-left View Details
+          span.pull-left =t 'view_details'
           span.pull-right
             i.fa.fa-arrow-circle-right
           .clearfix
@@ -60,7 +60,7 @@
       .panel-heading
         h3.panel-title
           i.fa.fa-truck.fa-fw
-          | Last Orders
+          =t 'last_orders'
       .panel-body
         = render '/admin/orders/list', resources: Order.order('id desc').last(25)
   .col-lg-6
@@ -68,6 +68,6 @@
       .panel-heading
         h3.panel-title
           i.fa.fa-truck.fa-fw
-          | Best Sellers
+          =t 'best_sellers'
       .panel-body
         = render '/admin/products/list', resources: Product.best_sellers(limit: 15)

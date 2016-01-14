@@ -4,9 +4,9 @@
     html: { method: :get, class: 'form-inline pull-right admin-search' } do |f|
 
     .form-group
-      = f.input :term, input_html: { value: @term }, placeholder: 'Procure...', label: false
+      = f.input :term, input_html: { value: @term }, placeholder: t('keyword'), label: false
 
-    = f.submit "Buscar", class: 'btn btn-primary'
+    = f.submit t('search'), class: 'btn btn-primary'
 
 h2 = @klass.model_name.human
 hr.line
@@ -15,4 +15,4 @@ hr.line
   p
     = link_to send("new_admin_#{@klass.to_s.downcase}_path"), class: 'btn btn-primary' do
       i.fa.fa-plus
-      | Novo
+      = t('new')

@@ -4,7 +4,7 @@
 
 - if @resource.persisted?
   hr.line
-  h4 Products
+  h4 = plural Product
 
   = render '/admin/products/list', resources: @resource.products
 

@@ -1,7 +1,7 @@
 doctype transitional
 html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"]
   head
-    title AreaGT - Gerenciamento
+    title = site_name
 
     meta content="text/html; charset=utf-8" http-equiv="Content-Type"
     meta content="width=device-width, initial-scale=1.0" name="viewport"
@@ -26,16 +26,17 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"]
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand href="/admin"  E-Commerce
+            a.navbar-brand href="/admin" = site_name
+              
           ul.nav.navbar-right.top-nav
             li
               = link_to '/', target: '_blank' do
                 i.fa.fa-fw.fa-globe
-                | Ver website
+                =t 'go_to_website'
             li
               = link_to destroy_user_session_path do
                 i.fa.fa-fw.fa-power-off
-                | Sair
+                =t 'logoff'
                 
           .collapse.navbar-collapse.navbar-ex1-collapse
             ul.nav.navbar-nav.side-nav
@@ -46,36 +47,35 @@ html[xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"]
               li class="#{'active' if params[:controller] == 'admin_orders'}"
                 = link_to admin_orders_path do
                   i.fa.fa-fw.fa-truck
-                  | Order
+                  = plural Order
               li class="#{'active' if params[:controller] == 'admin_products'}"
                 = link_to admin_products_path do
                   i.fa.fa-fw.fa-product-hunt
-                  | Product
+                  = plural Product
               li class="#{'active' if params[:controller] == 'admin_customers'}"
                 = link_to admin_customers_path do
                   i.fa.fa-fw.fa-users
-                  | Customer
+                  = plural Customer
               li class="#{'active' if params[:controller] == 'admin_brands'}"
                 = link_to admin_brands_path do
                   i.fa.fa-fw.fa-asterisk
-                  = Brand.model_name.human
+                  = plural Brand
               li class="#{'active' if params[:controller] == 'admin_carts'}"
                 = link_to admin_carts_path do
                   i.fa.fa-fw.fa-shopping-cart
-                  | Cart
+                  = plural Cart
               li class="#{'active' if params[:controller] == 'admin_categories'}"
                 = link_to admin_categories_path do
                   i.fa.fa-fw.fa-bars
-                  = Category.model_name.human
+                  = plural Category
               li class="#{'active' if params[:controller] == 'admin_users'}"
                 = link_to admin_users_path do
                   i.fa.fa-fw.fa-user-secret
-                  | Users
+                  = plural User
               li class="#{'active' if params[:controller] == 'admin_settings'}"
                 = link_to admin_settings_path do
                   i.fa.fa-fw.fa-gears
-                  | Configurações
-          /! /.navbar-collapse
+                  = plural Setting
         #page-wrapper
           .container-fluid
             - unless flash[:error].blank?

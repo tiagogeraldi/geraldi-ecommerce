@@ -1,0 +1,59 @@
+pt_br:
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: "Reenviar instruções de confirmação"
+    mailer:
+      confirmation_instructions:
+        action: "Confirmar minha conta"
+        greeting: Bem-vindo %{recipient}!
+        instruction: 'Confirme sua conta clicando no link abaixo:'
+      reset_password_instructions:
+        action: Trocar minha senha
+        greeting: Olá %{recipient}!
+        instruction: Alguém pediu para redefinir sua senha. Se você realmente quer, você pode fazê-lo clicando no link abaixo.
+        instruction_2: Se você não executar este pedido, ignore essa mensagem.
+        instruction_3: Sua senha não será alterada até que você acessar o link acima.
+      unlock_instructions:
+        action: Desbloquear minha conta
+        greeting: Olá %{recipient}!
+        instruction: 'Clique no link abaixo para desbloquear sua conta:'
+        message: A sua conta foi bloqueada devido a muitas tentativas de login.
+    passwords:
+      edit:
+        change_my_password: 
+        change_your_password: Altere sua senha
+        confirm_new_password: Confirme sua nova senha
+        new_password: Nova senha
+      new:
+        forgot_your_password: Esqueceu sua senha?
+        send_me_reset_password_instructions: Envie-me instruções para resetar minha senha
+        reset_password: Resetar minha senha
+    registrations:
+      edit:
+        are_you_sure: Tem certeza?
+        cancel_my_account: Cancelar minha conta
+        currently_waiting_confirmation_for_email: 
+        leave_blank_if_you_don_t_want_to_change_it: Deixe em branco se não for alterar
+        title: Alterar %{resource}
+        unhappy: 
+        update: 
+        we_need_your_current_password_to_confirm_your_changes: precisamos de sua senha atual para confirmar as alterações
+      new:
+        sign_up: Registrar-se
+    sessions:
+      new:
+        sign_in: Acessar
+        remember_me: Lembre-me
+    shared:
+      links:
+        back: Voltar
+        didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação de senha?
+        didn_t_receive_unlock_instructions: Não recebeu instruções para desbloquear sua conta?
+        forgot_your_password: Esqueceu sua senha?
+        sign_in: Acessar
+        sign_in_with_provider: Acessar com %{provider}
+        sign_up: Registrar-se
+    unlocks:
+      new:
+        resend_unlock_instructions: Reenviar instruções de desbloqueio

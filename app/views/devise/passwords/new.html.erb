@@ -1,12 +1,12 @@
 <div class="authform">
   <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :role => 'form'}) do |f| %>
-    <h3>Forgot your password?</h3>
-    <p>We'll send password reset instructions.</p>
+    <h3><%= t('devise.passwords.new.forgot_your_password') %></h3>
+    <p><%= t('devise.passwords.new.send_me_reset_password_instructions') %></p>
     <%= devise_error_messages! %>
     <div class="form-group">
-      <%= f.label :email %>
+      <%= f.label :email, t('activerecord.attributes.user.email') %>
       <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
     </div>
-     <%= f.submit 'Reset Password', :class => 'button right' %>
+     <%= f.submit t('devise.passwords.new.reset_password'), :class => 'button right' %>
   <% end %>
 </div>
