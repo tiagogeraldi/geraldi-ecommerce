@@ -20,4 +20,19 @@
 
 $(document).ready(function() {
   $('.hint').tooltip();
+
+  var input = $('input[data-currency],input.currency');
+  input.css('text-align', 'right');
+  input.value = input.value
+  input.maskMoney({
+    prefix: '',
+    thousands: ".",
+    decimal: ","
+  }).focus();
+
+  $('.simple_form').on('submit', function(e){
+    $(this).find('input.currency').each(function() {
+      $(this).val($(this).maskMoney('unmasked')[0]);
+    });
+  });
 });

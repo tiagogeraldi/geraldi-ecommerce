@@ -4,7 +4,9 @@
       = f.input :name 
 
       .row
-        .col-md-3 = f.input :price 
+        .col-md-3 = f.input :price, as: :string,
+                            input_html: { class: 'currency', 
+                                          value: number_to_currency(f.object.price) }
         .col-md-3 = f.input :discount
 
       = f.input :special 

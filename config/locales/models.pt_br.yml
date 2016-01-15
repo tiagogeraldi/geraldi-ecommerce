@@ -72,10 +72,10 @@ pt_br:
         image: "Imagem"
       product:
         <<: *commons
-        height: "Altura"
-        width: "Largura"
-        depth: "Profundidade"
-        weight: "Peso"
+        height: "Altura (cm)"
+        width: "Largura (cm)"
+        depth: "Profundidade (cm)"
+        weight: "Peso (g)"
         price: "Preço"
         category: "Categoria"
         brand: "Marca"

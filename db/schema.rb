@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111145349) do
+ActiveRecord::Schema.define(version: 20160115164920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,10 +83,10 @@ ActiveRecord::Schema.define(version: 20160111145349) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "status"
-    t.string   "shipping_cost"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "customer_id"
+    t.float    "shipping_cost"
   end
 
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
@@ -110,19 +110,19 @@ ActiveRecord::Schema.define(version: 20160111145349) do
     t.integer  "width"
     t.integer  "depth"
     t.integer  "weight"
-    t.decimal  "price",        precision: 10, scale: 2
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "category_id"
     t.integer  "brand_id"
     t.float    "discount"
-    t.boolean  "news",                                  default: false
-    t.integer  "views",                                 default: 0
-    t.boolean  "special",                               default: false
-    t.boolean  "promotion",                             default: false
-    t.boolean  "sould_out",                             default: false
+    t.boolean  "news",         default: false
+    t.integer  "views",        default: 0
+    t.boolean  "special",      default: false
+    t.boolean  "promotion",    default: false
+    t.boolean  "sould_out",    default: false
     t.string   "stock_code"
     t.string   "factory_code"
+    t.float    "price"
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree

@@ -5,7 +5,9 @@
     .col-md-3
       = f.input :status, as: :select, collection: OrderStatus.to_a
     .col-md-3
-      = f.input :shipping_cost
+      = f.input :shipping_cost, as: :string, 
+                input_html: { class: 'currency', 
+                              value: number_to_currency(f.object.shipping_cost) }
 
   = f.simple_fields_for :order_items do |item|
      = render 'order_item_fields', f: item

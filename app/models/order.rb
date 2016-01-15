@@ -8,6 +8,6 @@ class Order < ActiveRecord::Base
   has_enumeration_for :status, create_helpers: true, with: OrderStatus
 
   def total
-    order_items.map(&:product).sum(&:price)
+    order_items.map{ |i| i.product.price }.compact.sum
   end
 end
