@@ -7,3 +7,11 @@ en:
   delete: 'Delete'
   cancel: 'Cancel'
   add: 'Add'
+  dont_answer_this_message: "Please, don't answer this message"
+  change: Change
+  product_sent: Your product has been sent
+  hi: Hi
+  has_been_sent: has been sent
+  regards: Regards
+  team: Team
+  contact_us: "Contact us if you have any question"

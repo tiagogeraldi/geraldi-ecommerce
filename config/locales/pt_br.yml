@@ -19,6 +19,13 @@ pt_br:
   hi: "Olá"
   edit_account: "Alterar minha conta"
   add: "Adicionar"
+  product_sent: Produto enviado
+  hi: Olá
+  has_been_sent: Foi enviado
+  regards: Atenciosamente
+  team: Administração
+  dont_answer_this_message: "Por favor, não responda esse e-mail"
+  contact_us: "Em caso de dúvida, contate-nos"
 
   activerecord:
     errors:

@@ -1,0 +1,10 @@
+p
+  | #{t 'hi'} #{@shipping.order_item.order.customer.name},
+p
+  | #{@shipping.order_item.product.name} 
+p
+  | #{OrderItem.human_attribute_name :quantity}: #{@shipping.quantity}
+p
+  | #{t 'has_been_sent'}.
+p
+| #{Shipping.human_attribute_name :tracking_code}: #{@shipping.tracking_code}

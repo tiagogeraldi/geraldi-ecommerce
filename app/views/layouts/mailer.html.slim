@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+  body
+    = yield
+    
+    br
+    p
+      | #{t 'regards'},
+      br
+      | #{site_name} #{t 'team'}
+    br
+    br
+    p
+      =t 'dont_answer_this_message'
+    p
+      | #{t 'contact_us'}:
+      br
+      = Setting.find_by_name('email-contact').description
+      br
+      = Setting.find_by_name('phone').description

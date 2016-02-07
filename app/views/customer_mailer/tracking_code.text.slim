@@ -1,0 +1,17 @@
+| #{t 'hi'} #{@shipping.order_item.order.customer.name},
+| #{@shipping.order_item.product.name} 
+| #{OrderItem.human_attribute_name :quantity}: #{@shipping.quantity}
+| #{t 'has_been_sent'}.
+| #{Shipping.human_attribute_name :tracking_code}: #{@shipping.tracking_code}
+
+
+
+| #{t 'regards'},
+| #{site_name} #{t 'team'}
+
+
+
+=t 'dont_answer_this_message'
+| #{t 'contact_us'}:
+= Setting.find_by_name('email-contact').description
+= Setting.find_by_name('phone').description
