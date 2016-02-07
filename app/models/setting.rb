@@ -1,4 +1,3 @@
 class Setting < ActiveRecord::Base
-  validates :name, :description, presence: true
-  validates :name, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 end
