@@ -24,7 +24,7 @@ class AdminController < ApplicationController
   def create
     @resource = @klass.new(resource_params)
     if @resource.save
-      flash[:notice] = 'Registro salvo'
+      flash[:notice] = t('saved_successfully')
       if params[:commit].in?(['Salvar', 'Save'])
         redirect_to send("edit_admin_#{@klass.to_s.downcase}_path", @resource)
       elsif params[:commit] == 'Pré-visualizar'
@@ -41,7 +41,7 @@ class AdminController < ApplicationController
   def update
     @resource = @klass.find(params[:id])
     if @resource.update_attributes(resource_params)
-      flash[:notice] = 'Registro atualizado'
+      flash[:notice] = t('saved_successfully')
       if params[:commit].in?(['Salvar', 'Save'])
         redirect_to send("edit_admin_#{@klass.to_s.downcase}_path", @resource)
       elsif params[:commit] == 'Pré-visualizar'
