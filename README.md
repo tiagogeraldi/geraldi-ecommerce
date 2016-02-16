@@ -37,6 +37,11 @@ http://localhost:8080/admin
 Email: test@test.com
 Password: 123123
 
+## Testing
+```
+bundle exec rspec
+```
+
 ## Production
 Neeeded ENV variables:
 ```

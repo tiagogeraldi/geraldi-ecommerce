@@ -42,3 +42,13 @@ group :production do
   gem 'rails_12factor'
   gem 'unicorn'
 end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'poltergeist'
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'simplecov', require: false
+end
