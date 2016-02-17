@@ -1,0 +1,15 @@
+table.table.table-striped.table-hover.table-bordered
+  tr
+    th
+    th.center = User.human_attribute_name :name
+    th.center = User.human_attribute_name :email
+    th
+    th
+
+  - resources.each do |setting|
+    tr
+      td = setting.id.to_s
+      td = setting.name
+      td = setting.email
+
+      = render 'operations', resource: setting
