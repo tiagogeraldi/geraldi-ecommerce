@@ -27,6 +27,7 @@ pt_br:
   dont_answer_this_message: "Por favor, não responda esse e-mail"
   contact_us: "Em caso de dúvida, contate-nos"
   saved_successfully: "Dados salvos"
+  are_you_sure: Você tem certeza?
 
   activerecord:
     errors:

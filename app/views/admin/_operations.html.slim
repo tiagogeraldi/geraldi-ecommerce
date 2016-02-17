@@ -7,7 +7,7 @@ td.center
 td.center
   = button_to send("admin_#{@klass.to_s.downcase}_path", resource),
     method: :delete,
-    class: 'btn btn-danger hint',
+    class: 'btn btn-danger hint delete',
     title: t('delete'),
-    data: { confirm: 'Remover. Tem certeza?' } do
+    data: { confirm: t('are_you_sure') } do
       i.fa.fa-trash.no-margin
