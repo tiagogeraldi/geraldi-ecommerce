@@ -15,18 +15,22 @@ RSpec.feature "managing setttings", type: feature do
     fill_in 'Description', with: 'new-value'
     click_button 'Save and Close'
 
-    expect(page).to have_content 'new-setting'
-
     first('.fa-pencil').click
+    expect(page).to have_field('Name', with: 'new-setting')
     fill_in 'Name', with: 'changing-value'
-    screenshot_and_save_page
     click_button 'Save and Close'
 
-    expect(page).to have_content 'changing-value'
-
     first('.fa-pencil').click
-    click_link 'Delete'
+    click_button 'Delete'
 
     expect(page).to_not have_content 'changing-value'
+
+    fill_in 'Keyword...', with: 'faceb'
+    click_button 'Search'
+
+    within 'table.table' do
+      expect(page).to_not have_content 'new-setting'
+      expect(page).to have_content 'facebook'
+    end
   end
 end
