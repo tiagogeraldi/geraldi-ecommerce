@@ -24,9 +24,9 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   
   config.before(:suite) do
-    DatabaseCleaner[:active_record,{connection: :test}].strategy = :deletion
-    DatabaseCleaner[:active_record,{connection: :test}].start
-    DatabaseCleaner[:active_record,{connection: :test}].clean
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
+    DatabaseCleaner.clean
 
     load Rails.root + "db/seeds.rb"
   end
