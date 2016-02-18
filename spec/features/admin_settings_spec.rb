@@ -20,10 +20,7 @@ RSpec.feature "managing setttings", type: feature do
     fill_in 'Name', with: 'changing-value'
     click_button 'Save and Close'
 
-    first('.fa-pencil').click
-    click_button 'Delete'
-
-    expect(page).to_not have_content 'changing-value'
+    expect(page).to have_content 'changing-value'
 
     fill_in 'Keyword...', with: 'faceb'
     click_button 'Search'
@@ -32,5 +29,8 @@ RSpec.feature "managing setttings", type: feature do
       expect(page).to_not have_content 'new-setting'
       expect(page).to have_content 'facebook'
     end
+
+    first('.delete').click
+    expect(page).to_not have_content 'facebook'
   end
 end
