@@ -15,7 +15,7 @@ module BelongsToAutocomplete
           send 'after_initialize', "set_#{obj}_#{field}".to_sym
 
           define_method "set_#{obj}" do
-            eval "self.#{obj}_id = #{obj.capitalize.constantize.find_or_create_by(name: eval("#{obj}_#{field}")).id}"
+            eval "self.#{obj} ||= #{obj.capitalize.constantize}.find_or_create_by(name: #{obj}_#{field})"
           end
 
           define_method "set_#{obj}_#{field}" do

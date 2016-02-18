@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   include BelongsToAutocomplete
   
-  validates :name, :price, :category, :brand_name, :category_name, presence: true
+  validates :name, :price, :category, presence: true
   validates :name, uniqueness: :category
 
   belongs_to :category
