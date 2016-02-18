@@ -15,18 +15,18 @@ RSpec.feature "managing categories", type: feature do
     click_button 'Save and Close'
 
     click_link 'Bags'
-    fill_in 'Name', with: 'Shoes'
+    fill_in 'Name', with: 'Shirts'
     click_button 'Save and Close'
 
     fill_in 'Keyword...', with: 'non-existing'
     click_button 'Search'
-    expect(page).to_not have_content 'Shoes'
+    expect(page).to_not have_content 'Shirts'
 
-    fill_in 'Keyword...', with: 'sho'
+    fill_in 'Keyword...', with: 'shi'
     click_button 'Search'
-    expect(page).to have_content 'Shoes'
+    expect(page).to have_content 'Shirts'
 
     first('.delete').click
-    expect(page).to_not have_content 'Shoes'
+    expect(page).to_not have_content 'Shirts'
   end
 end
