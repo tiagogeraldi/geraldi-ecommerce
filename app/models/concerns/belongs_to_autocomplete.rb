@@ -19,7 +19,7 @@ module BelongsToAutocomplete
           end
 
           define_method "set_#{obj}_#{field}" do
-            send "#{obj}_#{field}=", eval("self.#{obj}.#{field}")
+            send "#{obj}_#{field}=", eval("self.#{obj}.try(#{field.to_sym})")
           end
         end
       end  
