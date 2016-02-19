@@ -8,7 +8,7 @@ class Admin::CustomersController < AdminController
   private
 
   def resource_params
-    params.require(:customer).permit(:user_id, :name, :address, :city, :state, 
+    params.require(:customer).permit(:user_id, :name, :email, :address, :city, :state, 
                                      :zip_code, :phone, :password, :password_confirmation)
   end
 end
