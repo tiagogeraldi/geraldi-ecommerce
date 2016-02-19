@@ -37,5 +37,5 @@ Capybara.default_selector = :css
 Capybara.javascript_driver = :poltergeist
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, timeout: 600)
+  Capybara::Poltergeist::Driver.new(app, timeout: 600, js_errors: false)
 end
