@@ -7,6 +7,8 @@ table.table.table-striped.table-hover
       th = Product.human_attribute_name :category
       th
       th = Product.human_attribute_name :price
+      th
+      th
 
   tbody
     - resources.each do |item|
@@ -23,3 +25,5 @@ table.table.table-striped.table-hover
           = product_first_image_for_list(item)
         td.text-right 
           = number_to_currency item.price
+        
+        = render 'operations', resource: item
