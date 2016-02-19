@@ -6,6 +6,7 @@ table.table.table-striped.table-hover
       th = Order.human_attribute_name :total
       th = Order.human_attribute_name :status
       th
+      th
 
   tbody
     - resources.each do |item|
@@ -20,3 +21,6 @@ table.table.table-striped.table-hover
           = item.status_humanize
         td.text-right
           span.badge = time_ago_in_words(item.created_at) + t('ago')
+
+        = render 'operations', resource: item
+
