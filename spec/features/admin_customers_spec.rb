@@ -25,13 +25,13 @@ RSpec.feature "managing customers", type: feature do
 
     fill_in 'Keyword...', with: 'non-existing'
     click_button 'Search'
-    expect(page).to_not have_content('Tiago A. Geraldi')
+    expect(page).to_not have_content('Tiago Andre Geraldi')
 
     fill_in 'Keyword...', with: 'gerald'
     click_button 'Search'
-    expect(page).to have_content 'Tiago A. Geraldi'
+    expect(page).to have_content 'Tiago Andre Geraldi'
 
     first('.delete').click
-    expect(page).to_not have_content 'Tiago A. Geraldi'
+    expect(page).to_not have_content 'Tiago Andre Geraldi'
   end
 end
