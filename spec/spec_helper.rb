@@ -23,7 +23,7 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
   
-  config.before(:suite) do
+  config.before(:each) do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
     DatabaseCleaner.clean
