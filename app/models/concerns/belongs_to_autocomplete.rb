@@ -8,14 +8,13 @@ module BelongsToAutocomplete
 
     def autocompleteable(opts={})
       opts.each do |obj, field|
-        class_eval { attr_accessor "#{obj}_#{field}" }
-
         class_eval do
-          send 'before_save', "set_#{obj}".to_sym
-          send 'after_initialize', "set_#{obj}_#{field}".to_sym
+          attr_accessor "#{obj}_#{field}"
+          before_validation "set_#{obj}".to_sym
+          after_initialize "set_#{obj}_#{field}".to_sym
 
           define_method "set_#{obj}" do
-            eval "self.#{obj} ||= #{obj.capitalize.constantize}.find_or_create_by(name: #{obj}_#{field})"
+             eval "self.#{obj} ||= #{obj.capitalize.constantize}.find_or_create_by(name: #{obj}_#{field})"
           end
 
           define_method "set_#{obj}_#{field}" do
