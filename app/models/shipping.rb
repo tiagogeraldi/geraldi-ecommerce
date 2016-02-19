@@ -6,7 +6,7 @@ class Shipping < ActiveRecord::Base
   after_save :send_email_to_customer
 
   def send_email_to_customer
-    if !self.sent_to_user && self.tracking_code.present?
+    if !self.sent_to_user && self.tracking_code.present? && Rails.env.production?
       CustomerMailer.tracking_code(self).deliver
 
       self.sent_to_user = true
