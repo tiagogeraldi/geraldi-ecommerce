@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :customers
+  devise_for :customers, controllers: { registrations: 'customer_registrations' }
   root to: 'visitors#index'
 
   devise_for :users, path_prefix: 'login'
