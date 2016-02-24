@@ -22,5 +22,15 @@ module Areagt
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.to_prepare do
+      Devise::SessionsController.layout proc { |controller|
+        if controller.request.path.include?('customers')
+          'application'
+        else
+          'admin'
+        end
+      }
+    end
   end
 end
