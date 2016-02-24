@@ -22,5 +22,4 @@ table.table.table-striped.table-hover
         td.text-right
           span.badge = time_ago_in_words(item.created_at) + t('ago')
 
-        = render 'operations', resource: item
-
+        = render 'operations', resource: item, klass: Order

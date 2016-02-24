@@ -4,4 +4,4 @@ table.table.table-striped.table-hover
       tr
         td = link_to item.to_s, send("edit_admin_#{@klass.to_s.downcase}_path", item)
 
-        = render 'operations', resource: item
+        = render 'operations', resource: item, klass: @klass

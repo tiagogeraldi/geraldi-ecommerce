@@ -1,11 +1,11 @@
 td.center
-  = link_to send("edit_admin_#{@klass.to_s.downcase}_path", resource),
+  = link_to send("edit_admin_#{klass.to_s.downcase}_path", resource),
     class: 'btn btn-success hint',
     title: t('change') do
       i.fa.fa-pencil.no-margin
 
 td.center
-  = button_to send("admin_#{@klass.to_s.downcase}_path", resource),
+  = button_to send("admin_#{klass.to_s.downcase}_path", resource),
     method: :delete,
     class: 'btn btn-danger hint delete',
     title: t('delete'),
