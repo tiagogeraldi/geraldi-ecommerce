@@ -31,6 +31,7 @@ pt_br:
       send_paranoid_instructions: 'Se o seu endereço de e-mail estiver cadastrado, você receberá um link de recuperação da senha via e-mail.'
       updated: 'Sua senha foi alterada com sucesso. Você está logado.'
       updated_not_active: 'Sua senha foi alterada com sucesso.'
+      leave_password_blank: "Deixe esses campos em branco para não alterar sua senha"
     registrations:
       sign_up: 'Cadastre-se'
       destroyed: 'Tchau! Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
@@ -40,6 +41,8 @@ pt_br:
       signed_up_but_unconfirmed: 'Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, abra o link para confirmar a sua conta.'
       update_needs_confirmation: 'Você atualizou a sua conta com sucesso, mas o seu novo endereço de e-mail precisa ser confirmado. Por favor, acesse-o e clique no link de confirmação que enviamos.'
       updated: 'Sua conta foi atualizada com sucesso.'
+      cancel_account: "Cancelar minha conta"
+      unhappy: "Insatisfeito?"
     sessions:
       signed_in: 'Login efetuado com sucesso!'
       signed_out: 'Saiu com sucesso.'

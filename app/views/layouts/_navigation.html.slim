@@ -19,7 +19,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
               span.caret
             ul.dropdown-menu
               li.text-right 
-                = link_to t('edit_account'), '#'
+                = link_to t('edit_account'), edit_customer_registration_path
               li.text-right 
                 = link_to t('logoff'), destroy_customer_session_path
         - else

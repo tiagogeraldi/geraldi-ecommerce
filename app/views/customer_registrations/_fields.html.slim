@@ -1,0 +1,38 @@
+.well
+  fieldset
+    .row
+      .col-md-6 
+        = f.input :name, required: true, autofocus: true
+      .col-md-6
+        = f.input :email, required: true
+
+    .row
+      .col-md-6
+        = f.input :city, required: true
+      .col-md-6
+        = f.input :state, required: true
+
+    = f.input :address
+
+    .row
+      .col-md-3
+        = f.input :zip_code
+
+    hr.line
+    - if f.object.persisted?
+      p =t 'devise.registrations.leave_password_blank'
+    .row
+      .col-md-6
+        = f.input :password, required: f.object.new_record?
+      .col-md-6
+        = f.input :password_confirmation, required: f.object.new_record?
+    
+    hr.line
+    - if f.object.persisted?
+      .row
+        .col-md-4
+          = f.input :current_password
+          
+    br
+    .form-actions
+      = f.button :submit, t('save'), class: 'btn btn-lg btn-primary'

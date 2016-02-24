@@ -60,6 +60,9 @@ pt_br:
         state: "Estado"
         zip_code: "CEP"
         phone: "Telefone"
+        current_password: "Senha atual"
+        password: "Senha"
+        password_confirmation: "Confirmação de senha"
       order_item:
         <<: *commons
         order: "Pedido"
