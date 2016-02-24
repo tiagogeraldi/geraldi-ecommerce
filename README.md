@@ -43,7 +43,7 @@ bundle exec rspec
 ```
 
 ## Production
-Neeeded ENV variables:
+Needed ENV variables:
 ```
 SITE_NAME
 ADMIN_EMAIL
