@@ -14,7 +14,7 @@ table.table.table-striped.table-hover
   tbody
     - resources.each do |item|
       tr
-        td = link_to item.email
+        td = item.email
         td = item.name
         td = item.phone
         td = item.zip_code
