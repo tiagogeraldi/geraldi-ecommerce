@@ -1,0 +1,24 @@
+h3 =t 'my_cart'
+
+table.table
+  thead
+    tr
+      th = Cart.human_attribute_name :product
+      th = Cart.human_attribute_name :quantity
+      th
+
+  tbody
+    - @carts.each do |cart|
+      tr
+        td = cart.product.name
+        td.text-right width="50px"
+          = simple_form_for cart, url: customer_cart_path(cart), remote: true do |f|
+            = f.input :quantity, 
+                      as: :integer, 
+                      label: false, 
+                      input_html: { class: 'text-right cart-quantity' }
+
+        td.text-right
+          = button_to t('delete'), customer_cart_path(cart), 
+                       method: :delete, 
+                       class:  'btn btn-danger hint'

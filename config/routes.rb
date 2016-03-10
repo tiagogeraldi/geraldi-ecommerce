@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :customer do
+    resources :carts, except: :edit
     resources :orders, only: [:index]
   end
 

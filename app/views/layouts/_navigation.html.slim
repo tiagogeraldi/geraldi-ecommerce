@@ -10,6 +10,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
       = link_to t('home'), root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
+        li = link_to t('my_cart'), customer_carts_path
         li = link_to t('my_orders'), customer_orders_path
 
         - if customer_signed_in?

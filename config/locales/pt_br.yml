@@ -28,6 +28,8 @@ pt_br:
   contact_us: "Em caso de dúvida, contate-nos"
   saved_successfully: "Dados salvos"
   are_you_sure: Você tem certeza?
+  add_to_cart: Adicionar ao Carrinho
+  my_cart: Meu Carrinho
 
   activerecord:
     errors:
