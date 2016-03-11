@@ -24,6 +24,7 @@ gem 'cocoon'
 gem 'enumerate_it'
 gem 'rails4-autocomplete'
 gem 'exception_notification'
+gem 'draper'
 
 group :development do
   gem 'better_errors'
