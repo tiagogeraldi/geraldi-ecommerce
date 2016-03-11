@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307183009) do
+ActiveRecord::Schema.define(version: 20160311152304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 20160307183009) do
     t.integer  "views",        default: 0
     t.boolean  "special",      default: false
     t.boolean  "promotion",    default: false
-    t.boolean  "sould_out",    default: false
+    t.boolean  "sold_out",     default: false
     t.string   "stock_code"
     t.string   "factory_code"
     t.float    "price"

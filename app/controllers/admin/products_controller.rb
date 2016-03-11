@@ -13,7 +13,7 @@ class Admin::ProductsController < AdminController
     params.require(:product).permit(:name, :description, :height, :width, 
                                     :price, :weight, :depth, :brand_name,
                                     :category_name, :discount,
-                                    :news, :special, :promotion, :sould_out,
+                                    :news, :special, :promotion, :sold_out,
                                     :stock_code, :factory_code,
                                     product_shots_attributes: [
                                       :id, :image, :_destroy, :product_id
