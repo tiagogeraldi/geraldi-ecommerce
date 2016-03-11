@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   include BelongsToAutocomplete
   
   validates :name, :price, :category, :brand, presence: true
+  validates :depth, :weight, :width, :height, presence: true
   validates :name, uniqueness: :category
 
   belongs_to :category
@@ -28,5 +29,15 @@ class Product < ActiveRecord::Base
 
   def to_s
     name
+  end
+
+  def shipping_price(cep)
+    frete = Correios::Frete::Calculador.new cep_origem: Setting.find_by_name('origin-cep').description,
+                                            cep_destino: cep,
+                                            peso: weight,
+                                            comprimento: depth,
+                                            largura: width,
+                                            altura: height
+    frete.calcular_pac
   end
 end

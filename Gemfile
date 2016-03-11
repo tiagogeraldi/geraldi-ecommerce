@@ -25,6 +25,7 @@ gem 'enumerate_it'
 gem 'rails4-autocomplete'
 gem 'exception_notification'
 gem 'draper'
+gem 'correios-frete'
 
 group :development do
   gem 'better_errors'
