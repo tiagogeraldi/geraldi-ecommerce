@@ -13,7 +13,7 @@ pt_br:
   save_and_close: "Salvar e Fechar"
   delete: "Remover"
   cancel: "Cancelar"
-  change: "Alterar"
+  edit: "Alterar"
   home: "Início"
   my_orders: "Meus Pedidos"
   hi: "Olá"
