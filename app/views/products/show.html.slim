@@ -1,0 +1,64 @@
+h3 = @product.brand
+h1 = @product.name
+
+.row
+  .col-md-9
+    #carousel-example-generic.carousel.slide data-ride="carousel" 
+      ol.carousel-indicators
+        - @product.product_shots.each_with_index do |shot, index|
+          li class="#{'active' if index == 0}" data-slide-to="#{index}" data-target="#carousel-example-generic" 
+      .carousel-inner
+        - @product.product_shots.each_with_index do |shot, index|
+          .item class="#{'active' if index == 0}"
+            = image_tag shot.image(:medium), class: 'slide-image'
+      a.left.carousel-control data-slide="prev" href="#carousel-example-generic" 
+        span.glyphicon.glyphicon-chevron-left
+      a.right.carousel-control data-slide="next" href="#carousel-example-generic" 
+        span.glyphicon.glyphicon-chevron-right
+
+  .col-md-3
+    = @product.decorate.discount
+    h4 = number_to_currency @product.price
+    br
+    small
+      table.table
+        - if @product.factory_code.present?
+          tr
+            td.bold = Product.human_attribute_name :factory_code
+            td.text-right = @product.factory_code
+        tr
+          td.bold = Product.human_attribute_name :height
+          td.text-right = @product.height.to_s + ' cm'
+        tr
+          td.bold = Product.human_attribute_name :width
+          td.text-right = @product.width.to_s + ' cm'
+        tr
+          td.bold = Product.human_attribute_name :weight
+          td.text-right = @product.weight.to_s + ' cm'
+        tr
+          td.bold = Product.human_attribute_name :depth
+          td.text-right = @product.depth.to_s + ' cm'
+
+    = Order.human_attribute_name :shipping_cost
+    = form_for :shipping, url: shipping_price_products_path(id: @product.id), 
+               remote: true, html: { class: 'form-inline' } do |f|
+      .form-group
+        = f.text_field :cep, placeholder: 'CEP'
+
+      = button_tag type: :submit, class: 'btn btn-sm btn-default' do
+        i.glyphicon.glyphicon-th
+
+    #shipping-price
+    br
+    br
+    .text-center
+      = link_to customer_carts_path(product_id: @product.id), 
+          class: 'btn btn-primary btn-lg',
+          method: :post do
+            i.glyphicon.glyphicon-shopping-cart
+            |  
+            = t('add_to_cart')
+
+hr.line
+
+= @product.description

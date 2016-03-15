@@ -1,29 +1,35 @@
 .col-sm-4.col-lg-4.col-md-4
   .thumbnail
-    - if product.product_shots.any?
-      = image_tag product.product_shots.first.image(:medium), width: 320
-    - else
-      img alt="" src="http://placehold.it/320x150"
+    = link_to product do
+      - if product.product_shots.any?
+        = image_tag product.product_shots.first.image(:medium), width: 320
+      - else
+        img alt="" src="http://placehold.it/320x150"
 
     .caption
+      = product.decorate.label
+      = product.brand.name
+      - if product.discount
+        br
+        = product.decorate.discount
+      br.clearfix
+
       h4.pull-right 
         = number_to_currency product.price
       h4
         = link_to product.name, '#'
-      p
-        = product.description
+      
 
-    p.center
-      = link_to t('add_to_cart'), 
-        customer_carts_path(product_id: product.id), 
-        class: 'btn btn-primary',
-        method: :post
+    .center.product-buttons
+      .btn-group
+        = link_to product, class: 'btn btn-success' do
+          i.glyphicon.glyphicon-zoom-in
+          |  
+          = t('see_more')
 
-    .ratings
-      p.pull-right 15 reviews
-      p
-        span.glyphicon.glyphicon-star
-        span.glyphicon.glyphicon-star
-        span.glyphicon.glyphicon-star
-        span.glyphicon.glyphicon-star
-        span.glyphicon.glyphicon-star
+        = link_to customer_carts_path(product_id: product.id), 
+          class: 'btn btn-primary',
+          method: :post do
+            i.glyphicon.glyphicon-shopping-cart
+            |  
+            = t('add_to_cart')

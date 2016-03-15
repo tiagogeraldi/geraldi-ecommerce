@@ -30,6 +30,8 @@ pt_br:
   are_you_sure: Você tem certeza?
   add_to_cart: Adicionar ao Carrinho
   my_cart: Meu Carrinho
+  see_more: Veja mais
+  calc: Calcular
 
   activerecord:
     errors:
