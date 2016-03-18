@@ -4,8 +4,8 @@ FactoryGirl.define do
     brand
     price        50
     height       10
-    width        10
-    depth        10
+    width        12
+    depth        16
     weight       20
     factory_code 'AAA123'
     stock_code   '050-010'

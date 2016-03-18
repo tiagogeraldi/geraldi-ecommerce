@@ -18,7 +18,13 @@ RSpec.feature "managing products", type: feature do
     fill_in 'Price', with: '200,00'
     fill_in 'Category name', with: category.name
     fill_in 'Brand name', with: brand.name
-    screenshot_and_save_page
+    fill_in 'Height', with: 3
+    fill_in 'Width', with: 10
+    fill_in 'Weight', with: 1
+    fill_in 'Depth', with: 16
+    click_button 'Save'
+    expect(page).to have_content('A largura nao pode ser inferior a 11 cm')
+    fill_in 'Width', with: 12
     click_button 'Save and Close'
 
     expect(page).to have_content('Sneakers A')

@@ -50,7 +50,7 @@ class AdminController < ApplicationController
         redirect_to send("admin_#{@klass.to_s.downcase.pluralize}_path")
       end
     else
-      flash[:error] = @resource.errors.full_messages.join('<br/>')
+      flash[:error] = @resource.errors.full_messages.join('. ')
       render :action => 'edit'
     end
   end

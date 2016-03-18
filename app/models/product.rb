@@ -17,6 +17,8 @@ class Product < ActiveRecord::Base
 
   accepts_nested_attributes_for :product_shots, allow_destroy: true
 
+  validate :product_measure
+
   scope :best_sellers, -> (opts = {}) do
     subquery = OrderItem.select('sum(quantity) as total, product_id').group(:product_id).to_sql
 
@@ -39,5 +41,14 @@ class Product < ActiveRecord::Base
                                             largura: width,
                                             altura: height
     frete.calcular_pac
+  end
+
+  private
+
+  def product_measure
+    shipping = shipping_price(Setting.find_by_name('origin-cep').description)
+    if shipping.erro?
+      errors.add(:base, shipping.msg_erro)
+    end
   end
 end
