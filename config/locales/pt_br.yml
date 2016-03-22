@@ -30,8 +30,12 @@ pt_br:
   are_you_sure: Você tem certeza?
   add_to_cart: Adicionar ao Carrinho
   my_cart: Meu Carrinho
+  empty_cart: Seu carrinho de compras está vazio
+  checkout: Finalizar compra
   see_more: Veja mais
   calc: Calcular
+  thank_you: Obrigado pela compra
+  after_checkout_message: Seu pedido será enviado em breve. Entraremos em contato por e-mail.
 
   activerecord:
     errors:

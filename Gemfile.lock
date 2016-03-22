@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    aitch (0.5.0)
+      nokogiri (>= 1.6.0)
     arel (6.0.3)
     autoprefixer-rails (6.1.1)
       execjs
@@ -166,6 +168,11 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
+    pagseguro-oficial (2.5.0)
+      aitch (~> 0.2)
+      i18n (~> 0.7)
+      json (~> 1.8)
+      nokogiri (~> 1.6)
     paperclip (4.3.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -358,6 +365,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
+  pagseguro-oficial (~> 2.5.0)
   paperclip (~> 4.3)
   pg
   poltergeist

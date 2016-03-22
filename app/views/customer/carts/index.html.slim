@@ -22,3 +22,8 @@ table.table
           = button_to t('delete'), customer_cart_path(cart), 
                        method: :delete, 
                        class:  'btn btn-danger hint'
+
+- if @carts.any?
+  = link_to t('checkout'), customer_checkouts_path, class: 'btn btn-lg btn-success'
+- else
+  .alert.alert-info = t('cart_empty')

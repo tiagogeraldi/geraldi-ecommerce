@@ -26,6 +26,7 @@ gem 'rails4-autocomplete'
 gem 'exception_notification'
 gem 'draper'
 gem 'correios-frete'
+gem 'pagseguro-oficial', '~> 2.5.0'
 
 group :development do
   gem 'better_errors'

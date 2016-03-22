@@ -1,3 +1,3 @@
 class OrderStatus < EnumerateIt::Base
-  associate_values :created, :processing, :sent, :finished
+  associate_values :created, :paid, :processing, :sent, :finished
 end

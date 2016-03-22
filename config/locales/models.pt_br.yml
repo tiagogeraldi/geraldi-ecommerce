@@ -98,4 +98,12 @@ pt_br:
         order_item: "Item de pedido"
       user:
         <<: *commons
+        
+  enumerations:
+    order_status:
+      created: Criado
+      paid: Pagamento confirmado
+      processing: Processando
+      sent: Enviado
+      finished: Concluído
 

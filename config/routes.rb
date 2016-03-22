@@ -23,7 +23,10 @@ Rails.application.routes.draw do
 
   namespace :customer do
     resources :carts, except: :edit
-    resources :orders, only: [:index]
+    resources :checkouts, only: :index do
+      get :notify, on: :collection
+    end
+    resources :orders
   end
 
   resources :categories, only: [:show]
