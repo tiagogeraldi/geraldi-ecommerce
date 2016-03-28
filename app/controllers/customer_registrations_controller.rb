@@ -12,7 +12,7 @@ class CustomerRegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:account_update) do |u| 
       u.permit(:user_id, :name, :email, :address, :city, :state, 
                :zip_code, :phone, :password, :password_confirmation,
-               :current_password)
+               :current_password, :address_number, :district)
     end
   end
 end

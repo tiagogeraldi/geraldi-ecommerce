@@ -12,11 +12,17 @@
       .col-md-6
         = f.input :state, required: true
 
-    = f.input :address
+    .row
+      .col-md-10
+        = f.input :address, required: true
+      .col-md-2
+        = f.input :address_number, required: true
 
     .row
+      .col-md-9
+        = f.input :district, required: true
       .col-md-3
-        = f.input :zip_code
+        = f.input :zip_code, required: true
 
     hr.line
     - if f.object.persisted?
