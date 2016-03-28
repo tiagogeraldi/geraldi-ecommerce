@@ -20,3 +20,4 @@ en:
   calc: Calculate
   thank_you: Thank You!
   after_checkout_message: Your order will be shipped soon
+  amount_exceded: Quantity of items exceded

@@ -4,6 +4,9 @@ class Customer < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :address, :city, :state, :district, presence: true, if: :persisted?
+  validates :zip_code, :address_number, presence: true, if: :persisted?
+
   has_many :orders
   
   def to_s

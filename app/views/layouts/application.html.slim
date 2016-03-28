@@ -13,11 +13,11 @@ html
       == render 'layouts/navigation'
     main[role="main"]
       .container
-        == render 'layouts/messages'
         .row
           .col-md-3
             = render '/layouts/left_menu'
           .col-md-9
+            == render 'layouts/messages'
             == yield
       
       .container

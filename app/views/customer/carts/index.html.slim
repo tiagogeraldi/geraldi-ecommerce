@@ -24,6 +24,21 @@ table.table
                        class:  'btn btn-danger hint'
 
 - if @carts.any?
-  = link_to t('checkout'), customer_checkouts_path, class: 'btn btn-lg btn-success'
+  .row
+    .col-md-4.well.text-center.pull-right
+      = Order.human_attribute_name :shipping_cost
+      = form_for :shipping, url: shipping_price_customer_carts_path, 
+                 remote: true, html: { class: 'form-inline' } do |f|
+        .form-group
+          = f.text_field :cep, placeholder: 'CEP'
+
+        = button_tag type: :submit, class: 'btn btn-sm btn-default' do
+          i.glyphicon.glyphicon-th
+      #shipping-price
+
+  .btn-group.pull-right
+    = link_to t('continue_buying'), root_path, class: 'btn btn-lg btn-info'
+    = link_to t('checkout'), customer_checkouts_path, class: 'btn btn-lg btn-success'
+
 - else
   .alert.alert-info = t('cart_empty')

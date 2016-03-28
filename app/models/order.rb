@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
 
   has_many :order_items
 
+  validates :shipping_cost, presence: true
+
   accepts_nested_attributes_for :order_items, allow_destroy: true
 
   has_enumeration_for :status, create_helpers: true, with: OrderStatus
@@ -11,7 +13,7 @@ class Order < ActiveRecord::Base
     order_items.map{ |i| i.product.price }.compact.sum
   end
 
-  def self.create_from_session_carts(session, customer)
+  def self.create_from_session_carts(session, customer, cep)
     order = Order.new(status: OrderStatus::CREATED, customer: customer)
 
     carts = Cart.where(session_id: session.id)
@@ -21,7 +23,11 @@ class Order < ActiveRecord::Base
       order.order_items << OrderItem.new(product: cart.product, quantity: cart.quantity)
     end
 
-    order.save
+    shipping = Cart.shipping_price(cep, carts)
+    order.shipping_cost = shipping.valor unless shipping.erro?
+
+    carts.each(&:destroy) if order.save
+
     order
   end
 end

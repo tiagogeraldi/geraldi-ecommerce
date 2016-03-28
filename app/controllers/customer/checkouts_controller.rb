@@ -3,33 +3,33 @@ class Customer::CheckoutsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: :notify
 
   def index
-    order = Order.create_from_session_carts(session, current_customer)
+    order = Order.create_from_session_carts(session, current_customer, session[:cep])
 
-    payment = PagSeguro::PaymentRequest.new
-    payment.reference = order.id
-    payment.notification_url = notify_customer_checkouts_path(only_path: false)
-    payment.redirect_url = customer_order_path(order, only_path: false)
-
-    order.order_items.includes(:product).each do |item|
-      payment.items << {
-        id: item.id,
-        description: item.product.name,
-        amount:      item.product.price,
-        weight:      item.product.weight
-      }
-    end
-
-    response = payment.register
-
-    if response.errors.any?
-      raise response.errors.join("\n")
+    if order.errors.any?
+      redirect_to customer_carts_path, alert: order.errors.full_messages.join('. ')
     else
-      redirect_to response.url
+      payment = PagSeguro::PaymentRequest.new
+      payment.reference = order.id
+      payment.notification_url = notify_customer_checkouts_path(only_path: false)
+      payment.redirect_url = customer_order_path(order, only_path: false)
+
+      order.order_items.includes(:product).each do |item|
+        payment.items << item.decorate.pagseguro_item
+      end
+
+      payment.shipping = PagSeguro::Shipping.new(order.decorate.pagseguro_shipping)
+
+      response = payment.register
+
+      if response.errors.any?
+        raise response.errors.join("\n")
+      else
+        redirect_to response.url
+      end
     end
   end
 
   def notify
-    binding.pry
     transaction = PagSeguro::Transaction.find_by_notification_code(params[:notificationCode])
 
     if transaction.status.paid?

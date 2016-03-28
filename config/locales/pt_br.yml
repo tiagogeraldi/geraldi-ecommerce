@@ -36,6 +36,7 @@ pt_br:
   calc: Calcular
   thank_you: Obrigado pela compra
   after_checkout_message: Seu pedido será enviado em breve. Entraremos em contato por e-mail.
+  amount_exceded: Quantidade excedida. Diminua a quantidade dos itens e tente novamente
 
   activerecord:
     errors:

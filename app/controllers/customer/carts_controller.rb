@@ -28,4 +28,11 @@ class Customer::CartsController < ApplicationController
 
     redirect_to customer_carts_path
   end
+
+  def shipping_price
+    carts = Cart.where(session_id: session.id).includes(:product)
+    @shipping_price = Cart.shipping_price(params[:shipping][:cep], carts)
+
+    session[:cep] = params[:shipping][:cep]
+  end
 end

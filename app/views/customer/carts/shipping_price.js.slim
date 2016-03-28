@@ -1,0 +1,4 @@
+- if @shipping_price.erro?
+  | $('#shipping-price').html("#{t('amount_exceded')}");
+- else
+  | $('#shipping-price').html("#{number_to_currency @shipping_price.valor}");
