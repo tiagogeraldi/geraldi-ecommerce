@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   validates :name, :price, :category, :brand, presence: true
   validates :depth, :weight, :width, :height, presence: true
   validates :name, uniqueness: :category
+  validates :price, numericality: { greater_than: 0 }
 
   belongs_to :category
   belongs_to :brand
