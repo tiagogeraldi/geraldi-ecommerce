@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    errors:
+      models:
+        order:
+          attributes:
+            shipping_cost:
+              blank: "Please calculate the shipping cost"

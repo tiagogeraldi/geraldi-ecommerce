@@ -100,6 +100,13 @@ pt_br:
         order_item: "Item de pedido"
       user:
         <<: *commons
+
+    errors:
+      models:
+        order:
+          attributes:
+            shipping_cost:
+              blank: "Informe o CEP e calule o valor do frete"
         
   enumerations:
     order_status:
