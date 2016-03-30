@@ -8,7 +8,9 @@ class Customer < ActiveRecord::Base
   validates :zip_code, :address_number, presence: true, if: :persisted?
 
   has_many :orders
-  
+
+  has_enumeration_for :state, create_helpers: true
+
   def to_s
     name.present? ? name : email
   end

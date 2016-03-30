@@ -10,7 +10,7 @@
       .col-md-6
         = f.input :city, required: true
       .col-md-6
-        = f.input :state, required: true
+        = f.input :state, required: true, collection: State.to_a
 
     .row
       .col-md-10
