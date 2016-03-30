@@ -26,10 +26,11 @@
           i.glyphicon.glyphicon-zoom-in
           |  
           = t('see_more')
-
-        = link_to customer_carts_path(product_id: product.id), 
-          class: 'btn btn-primary',
-          method: :post do
-            i.glyphicon.glyphicon-shopping-cart
-            |  
-            = t('add_to_cart')
+       
+        - unless product.sold_out
+          = link_to customer_carts_path(product_id: product.id), 
+            class: 'btn btn-primary',
+            method: :post do
+              i.glyphicon.glyphicon-shopping-cart
+              |  
+              = t('add_to_cart')

@@ -3,6 +3,10 @@ h1 = @product.name
 
 .row
   .col-md-9
+    - if @product.sold_out
+      .alert.alert-warning.text-center
+        = Product.human_attribute_name(:sold_out).upcase
+
     #carousel-example-generic.carousel.slide data-ride="carousel" 
       ol.carousel-indicators
         - @product.product_shots.each_with_index do |shot, index|
@@ -52,12 +56,13 @@ h1 = @product.name
     br
     br
     .text-center
-      = link_to customer_carts_path(product_id: @product.id), 
-          class: 'btn btn-primary btn-lg',
-          method: :post do
-            i.glyphicon.glyphicon-shopping-cart
-            |  
-            = t('add_to_cart')
+      - unless @product.sold_out
+        = link_to customer_carts_path(product_id: @product.id), 
+            class: 'btn btn-primary btn-lg',
+            method: :post do
+              i.glyphicon.glyphicon-shopping-cart
+              |  
+              = t('add_to_cart')
 
 hr.line
 
