@@ -21,6 +21,10 @@ class ProductDecorator < Draper::Decorator
     end
   end
 
+  def first_shot_url
+    product_shots.first.image(:small) if product_shots.any?
+  end
+
   private
 
   def label_class

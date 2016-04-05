@@ -27,8 +27,9 @@ Rails.application.routes.draw do
     end
     resources :checkouts, only: :index do
       get :notify, on: :collection
+      get :done, on: :collection
     end
-    resources :orders
+    resources :orders, only: [:index, :show]
   end
 
   resources :categories, only: [:show]

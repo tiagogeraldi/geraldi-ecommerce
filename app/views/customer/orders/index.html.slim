@@ -1,1 +1,34 @@
-| index
+table.table.table-striped.table-hover
+  thead
+    tr
+      th.text-center 
+        = Order.human_attribute_name :id
+      th.text-center 
+        = Order.human_attribute_name :order_items
+      th.text-center 
+        = Order.human_attribute_name :total
+      th.text-center 
+        = Order.human_attribute_name :status
+      th
+      th
+
+  tbody
+    - @orders.each do |order|
+      tr
+        td.text-right 
+          = order.id.to_s
+        td.text-right 
+          = order.order_items.size
+        td.text-right
+          = number_to_currency order.total
+        td.text-center 
+          = order.status_humanize
+        td.text-right
+          span.badge = time_ago_in_words(order.created_at) + t('ago')
+        td.text-center
+          = link_to t('see_more'),
+                    customer_order_path(order),
+                    class: 'btn btn-success btn-sm'
+
+.text-center
+  = will_paginate @orders, renderer: BootstrapPagination::Rails

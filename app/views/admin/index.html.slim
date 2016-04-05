@@ -3,4 +3,4 @@
 = render 'list', resources: @resources
 
 p
-  = will_paginate @resources
+  = will_paginate @resources, renderer: BootstrapPagination::Rails

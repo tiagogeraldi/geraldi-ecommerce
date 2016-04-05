@@ -1,4 +1,20 @@
-h2 =t 'thank_you'
+table.table
+  thead
+    tr
+      th
+      th = OrderItem.human_attribute_name :product
+      th = OrderItem.human_attribute_name :quantity
+      th = Product.human_attribute_name :price
+      th = OrderItem.human_attribute_name :shippings
 
-.alert.alert-info
-  =t 'after_checkout_message'
+  tbody
+    - @order.order_items.preload(:product, :shippings).each do |order_item|
+      tr
+        td = image_tag order_item.product.decorate.first_shot_url
+        td = order_item.product
+        td.text-right
+          = order_item.quantity.to_i
+        td.text-right
+          = number_to_currency order_item.product.price
+        td
+          = order_item.shippings.join(', ')

@@ -11,7 +11,7 @@ class Customer::CheckoutsController < ApplicationController
       payment = PagSeguro::PaymentRequest.new
       payment.reference = order.id
       payment.notification_url = notify_customer_checkouts_path(only_path: false)
-      payment.redirect_url = customer_order_path(order, only_path: false)
+      payment.redirect_url = customer_checkouts_done_path(only_path: false)
 
       order.order_items.includes(:product).each do |item|
         payment.items << item.decorate.pagseguro_item
@@ -39,6 +39,9 @@ class Customer::CheckoutsController < ApplicationController
     end
 
     render nothing: true, status: 200
+  end
+
+  def done
   end
 
   private
