@@ -20,7 +20,9 @@ class Order < ActiveRecord::Base
     carts = Cart.where(session_id: session[:old_session_id]) if carts.blank?
 
     carts.each do |cart|
-      order.order_items << OrderItem.new(product: cart.product, quantity: cart.quantity)
+      order.order_items << OrderItem.new(product:  cart.product, 
+                                         quantity: cart.quantity,
+                                         price:    cart.product.price)
     end
 
     shipping = Cart.shipping_price(cep, carts)

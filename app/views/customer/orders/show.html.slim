@@ -15,6 +15,6 @@ table.table
         td.text-right
           = order_item.quantity.to_i
         td.text-right
-          = number_to_currency order_item.product.price
+          = number_to_currency order_item.price
         td
           = order_item.shippings.join(', ')

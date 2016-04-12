@@ -47,6 +47,7 @@ pt_br:
         quantity: "Quantidade"
         password: "Senha"
         password_confirmation: "Confirmação de senha"
+        price: "Preço"
       brand:
         <<: *commons
       category:
@@ -82,7 +83,6 @@ pt_br:
         width: "Largura (cm)"
         depth: "Profundidade (cm)"
         weight: "Peso (g)"
-        price: "Preço"
         category: "Categoria"
         brand: "Marca"
         discount: "Desconto"

@@ -10,7 +10,7 @@ class Admin::OrdersController < AdminController
     params.require(:order).permit(:customer_id, :status, :shipping_cost,
                                   order_items_attributes: [
                                     :id, :_destroy, :order_id,
-                                    :product_id, :quantity,
+                                    :product_id, :quantity, :price,
                                     shippings_attributes: [ 
                                       :order_item_id, :id, :_destroy,
                                       :quantity, :tracking_code ]
